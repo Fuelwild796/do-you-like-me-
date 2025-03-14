@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi, você gosta de mim? 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d63384;
+        }
+        .button-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .no {
+            background-color: #555;
+            color: white;
+        }
+        .message {
+            display: none;
+            font-size: 20px;
+            color: #d63384;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mavi, você gosta de mim? 💖</h1>
+    <div class="button-container">
+        <button class="yes" onclick="showMessage()">Sim</button>
+        <button class="no" onmouseover="moveButton()">Não</button>
+    </div>
+    <p class="message" id="loveMessage">Eu sabia! quem não gosta?! 💖😍</p>
+
+    <script>
+        function moveButton() {
+            const button = document.querySelector('.no');
+            const container = document.querySelector('.button-container');
+            const maxX = container.clientWidth - button.clientWidth;
+            const maxY = container.clientHeight - button.clientHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+
+        function showMessage() {
+            document.getElementById("loveMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
